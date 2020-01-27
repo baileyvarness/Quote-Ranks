@@ -1,0 +1,27 @@
+<p>one-author component showing all quotes for that author</p>
+<a style="color: blue" [routerLink]="['/']">Home</a>
+<br>
+<a style="color: blue" [routerLink]="['/write', oneAuthor._id]">Add a quote</a>
+<br>
+<br>
+<p style="color: rgb(146, 34, 221)">Quotes by {{ oneAuthor.name }}: </p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Quote</th>
+        <th>Votes</th>
+        <th>Actions Available</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let quote of oneAuthor.quotes">
+        <td>{{ quote.quote }}</td>
+        <td>{{ quote.vote }}</td>
+        <td>
+          <button (click)="voteUp(quote._id)">Vote up</button>
+          <button (click)="voteDown(quote._id)">Vote down</button>
+          <button (click)="delete(quote._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

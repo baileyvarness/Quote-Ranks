@@ -1,0 +1,12 @@
+<p>new-author component</p>
+<a style="color: blue" [routerLink]="['/']">Home</a>
+<p style="color: rgb(146, 34, 221)">Add a new quotable author:</p>
+<div>
+    <form (submit)="onSubmit()">
+        <label for="name">Name</label>
+        <input type="text" name="name" [(ngModel)]="authorToCreate.name" />
+        <p *ngIf="errors">{{ errors }}</p>
+        <button [routerLink]="['/']">Cancel</button>
+        <button (submit)="onSubmit()">Submit</button>
+    </form>
+</div>

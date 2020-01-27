@@ -1,0 +1,20 @@
+<p>all-authors component</p>
+<a style="color: blue" [routerLink]="['/new']">Add a quotable author</a>
+<p style="color: rgb(146, 34, 221)">We have quotes by:</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Actions avilable</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="allAuthors.length > 0">
+      <tr *ngFor="let author of allAuthors">
+        <td>{{ author.name }}</td>
+        <td>
+          <button [routerLink]="['/quotes', author._id]">View quotes</button>
+          <button [routerLink]="['/edit', author._id]">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

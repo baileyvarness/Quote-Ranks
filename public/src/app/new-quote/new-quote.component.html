@@ -1,0 +1,12 @@
+<p>new-quote component</p>
+<a style="color: blue" [routerLink]="['/']">Home</a>
+<p style="color: rgb(146, 34, 221)">Provide a quote by NAME</p>
+<div>
+    <form (submit)="onSubmit()">
+        <label for="name">Quote:</label>
+        <input type="text" name="quote" [(ngModel)]="quoteToCreate.quote" />
+        <p *ngIf="errors">{{ errors }}</p>
+        <button [routerLink]="['/quotes', oneAuthor._id]">Cancel</button>
+        <button (submit)="onSubmit()">Submit</button>
+    </form>
+</div>
